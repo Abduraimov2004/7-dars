@@ -1,0 +1,55 @@
+{% extends 'page_wrapper.html' %}
+    {% block page %}
+        	<!-- inner header wrapper start -->
+	<div class="page_title_section float_left">
+		<div class="page_header">
+			<div class="container">
+				<div class="row">
+					<!-- section_heading start -->
+					<div class="col-lg-12 col-md-12 col-12 col-sm-12">
+						<h1>Add Category</h1>
+					</div>
+					<div class="col-lg-12 col-md-12 col-12 col-sm-12">
+						<div class="sub_title_section">
+							<ul class="sub_title">
+								<li> <a href="/"> Home </a> &nbsp;&nbsp;&nbsp; &gt; &nbsp;&nbsp;</li>
+								<li> <a href="/new">  News</a>  &nbsp;&nbsp;&nbsp; &gt; &nbsp;&nbsp;</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- inner header wrapper end -->
+	<!--blog wrapper start-->
+	<div class="blog_wrapper float_left">
+		<div class="container">
+			<div class="row">
+				<div class="col-xl-8 col-lg-8 col-md-12 col-sm-12 col-xs-12">
+                    <form action="" method="post" enctype="multipart/form-data">
+                            {% csrf_token %}
+                        {% if form.errors %}
+                            {% for error in form.errors %}
+                                <h1>{{ error }}</h1>
+                            {% endfor %}
+                        {% endif %}
+                        {% for field in form %}
+                            <div class="form-group">
+                                <label for = "">{{ field.label }}</label>
+                                {{ field }}
+
+                            </div>
+                        {% endfor %}
+
+                    <div class="form-group">
+                        <button class="btn btn-success" type="submit">Add</button>
+                    </div>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {% endblock  %}

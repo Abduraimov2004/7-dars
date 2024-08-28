@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us</title>
+    <!-- Link to Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Link to Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+        }
+        .page_title_section {
+            padding: 20px;
+            background-color: #f8f9fa;
+        }
+        .contact_icon_section {
+            padding: 20px;
+            background-color: #e9ecef;
+        }
+        .contact_main {
+            text-align: center;
+            padding: 10px;
+        }
+        .contact_main i {
+            font-size: 24px;
+            color: #007bff;
+        }
+        .contact_section {
+            padding: 20px;
+        }
+        .edu_heading_wrapper {
+            margin-bottom: 20px;
+        }
+        .edu_letter_main_wrapper {
+            background-color: #f8f9fa;
+            padding: 20px;
+            text-align: center;
+        }
+        .footer {
+            background-color: #343a40;
+            color: #ffffff;
+            padding: 20px;
+        }
+        .footerNav a {
+            color: #ffffff;
+        }
+        .contact_form {
+            background: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            padding: 20px;
+        }
+        .form-row {
+            margin-bottom: 15px;
+        }
+        .form-row input, 
+        .form-row textarea {
+            border: 1px solid #ced4da;
+            border-radius: 4px;
+            padding: 10px;
+            width: 100%;
+        }
+        .form-row button {
+            background-color: #007bff;
+            border: none;
+            border-radius: 4px;
+            color: #ffffff;
+            padding: 10px 20px;
+            cursor: pointer;
+        }
+        .form-row button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <!-- inner header wrapper start -->
+    <div class="page_title_section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-12">
+                    <h1>Contact Us</h1>
+                    <ul class="sub_title">
+                        <li><a href="/">Home</a> &nbsp;&nbsp;&nbsp; &gt; &nbsp;&nbsp;</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- inner header wrapper end -->
+
+    <!-- contact_icon_section start-->
+    <div class="contact_icon_section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 col-md-4 col-sm-12">
+                    <div class="contact_main">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <h4>Address</h4>
+                        <p>512 - Omexcity, California<br>California, Omexcity</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-12">
+                    <div class="contact_main">
+                        <i class="fas fa-envelope"></i>
+                        <h4>Email</h4>
+                        <p><a href="mailto:hello@example.com">hello@example.com</a><br><a href="mailto:support@example.com">support@example.com</a></p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-12">
+                    <div class="contact_main">
+                        <i class="fas fa-phone"></i>
+                        <h4>Phone</h4>
+                        <p>+1-804-548-5214<br>+1-804-548-5215</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- contact info section end -->
+
+    <div class="map_wrapper">
+        <div id="map" style="height: 400px; background-color: #e0e0e0;"></div>
+    </div>
+
+    <!-- contact_wrapper start -->
+    <div class="contact_section">
+        <div class="container">
+            <div class="edu_heading_wrapper">
+                <h3>Contact Us</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean auctor, libero non interdum maximus, ligula nulla pretium ligula, a egestas ex nibh.</p>
+            </div>
+            <div class="contact_form">
+                {% if error %}
+                    <p style="color: red;">{{ error }}</p>
+                {% endif %}
+                
+                {% if success %}
+                    <p style="color: green;">{{ success }}</p>
+                {% endif %}
+                
+                <form method="post">
+                    {% csrf_token %}
+                    <div class="row">
+                        <div class="col-md-6 form-row">
+                            <label for="first_name">First Name*</label>
+                            <input type="text" id="first_name" name="first_name" required>
+                        </div>
+                        <div class="col-md-6 form-row">
+                            <label for="last_name">Last Name*</label>
+                            <input type="text" id="last_name" name="last_name" required>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6 form-row">
+                            <label for="email">Email*</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="col-md-6 form-row">
+                            <label for="subject">Subject</label>
+                            <input type="text" id="subject" name="subject">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <label for="message">Message</label>
+                        <textarea id="message" name="message" rows="5" required></textarea>
+                    </div>
+                    <div class="form-row">
+                        <button type="submit">Send Message</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <!-- contact_wrapper end -->
+
+    <!--edu letter wrapper Start-->
+    <div class="edu_letter_main_wrapper">
+        <div class="container">
+            <div class="edu_left_envo">
+                <img src="/static/images/innn.png" alt="img">
+                <h3>Sign up for Newsletter</h3>
+            </div>
+            <div class="edu_right_form">
+                <input type="text" placeholder="Enter your email">
+                <button>Sign Up</button>
+            </div>
+        </div>
+    </div>
+    <!--edu letter wrapper End-->
+
+    <!-- footer Wrapper Start -->
+    <div class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3 col-sm-6 col-12">
+                    <div class="footerNav">
+                        <a href="#">
+                            <img src="/static/images/footer_logo.png" alt="img">
+                        </a>
+                        <ul class="footer_first_contact">
+                            <li><i class="flaticon-map-marker"></i>
+                                <p>123 City Avenue, Floor 10,<br>Melbourne, Australia.</p>
+                            </li>
+                            <li><i class="flaticon-telephone"></i>
+                                <p>1-234-456-7890<br>1-234-456-7890</p>
+                            </li>
+                            <li><i class="flaticon-close-envelope"></i><a href="mailto:info@Jbdesks.com">info@Jbdesks.com</a><br> <a href="mailto:support@Jbdesks.com">support@Jbdesks.com</a></li>
+                        </ul>
+                        <ul class="icon_list_news">
+                            <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+                            <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                            <li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
+                            <li><a href="#"><i class="fab fa-google-plus-g"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-sm-6 col-12">
+                    <div class="footerNav footer_border_displ footer_border_disp1">
+                        <h5>Services</h5>
+                        <ul class="nav-widget">
+                            <li><a href="#"><i class="fa fa-square"></i>Invoice & Time Tracking</a></li>
+                            <li><a href="#"><i class="fa fa-square"></i>Time & Materials Tracking</a></li>
+                            <li><a href="#"><i class="fa fa-square"></i>Standards Compliance</a></li>
+                            <li><a href="#"><i class="fa fa-square"></i>Real Time GPS Tracking</a></li>
+                            <li><a href="#"><i class="fa fa-square"></i>Client Portal</a></li>
+                            <li><a href="#"><i class="fa fa-square"></i>Powerful Workflow</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-sm-6 col-12">
+                    <div class="footerNav footer_border_displ footer_border_disp2">
+                        <h5>Browse</h5>
+                        <ul class="nav-widget">
+                            <li><a href="#"><i class="fa fa-square"></i>Freelancers by Category</a></li>
+                            <li><a href="#"><i class="fa fa-square"></i>Freelancers in USA</a></li>
+                            <li><a href="#"><i class="fa fa-square"></i>Freelancers in UK</a></li>
+                            <li><a href="#"><i class="fa fa-square"></i>Freelancers in Canada</a></li>
+                            <li><a href="#"><i class="fa fa-square"></i>Freelancers in India</a></li>
+                            <li><a href="#"><i class="fa fa-square"></i>Find Jobs</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-sm-6 col-12">
+                    <div class="footerNav footer_border_displ footer_border_disp3">
+                        <h5>App & Integration</h5>
+                        <ul class="nav-widget">
+                            <li><a href="#"><img src="/static/images/ft1.png" alt="img">Xero</a></li>
+                            <li><a href="#"><img src="/static/images/ft2.png" alt="img">Reckon</a></li>
+                            <li><a href="#"><img src="/static/images/ft3.png" alt="img">Flexidocs</a></li>
+                            <li><a href="#"><img src="/static/images/ft4.png" alt="img">Microsoft Exchange</a></li>
+                            <li><a href="#"><img src="/static/images/ft5.png" alt="img">Mailchimp</a></li>
+                            <li><a href="#"><img src="/static/images/ft6.png" alt="img">MYOB</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- footer Wrapper End -->
+
+    <!-- Scripts -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

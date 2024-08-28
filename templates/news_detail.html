@@ -1,0 +1,30 @@
+<!-- news_detail.html -->
+{% extends 'base.html' %}
+
+{% block content %}
+  <h1>{{ news_item.title }}</h1>
+  <p>{{ news_item.content }}</p>
+
+  <h2>Comments</h2>
+  <div>
+    {% for comment in comments %}
+      <div>
+        <strong>{{ comment.author }}</strong> on {{ comment.created_at }}:
+        <p>{{ comment.content }}</p>
+      </div>
+    {% empty %}
+      <p>No comments yet.</p>
+    {% endfor %}
+  </div>
+
+  <h2>Leave a Comment</h2>
+  {% if user.is_authenticated %}
+    <form method="POST">
+      {% csrf_token %}
+      {{ comment_form.as_p }}
+      <button type="submit">Submit Comment</button>
+    </form>
+  {% else %}
+    <p>You must be <a href="{% url 'login' %}">logged in</a> to post a comment.</p>
+  {% endif %}
+{% endblock %}
